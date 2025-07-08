@@ -8,8 +8,9 @@ submitBtn.addEventListener("click", submitFeedback);
         const designation = document.getElementById("designation").value;
         const productType = document.getElementById("ProductType").value;
         const feedback = document.getElementById("feedbackText").value;
+        const userExperience = document.getElementById("Experience").value
                 
-        if(!username || !age || !email || !job || !designation || !productType || !feedback) {
+        if(!username || !age || !email || !job || !designation || !productType || !feedback || !userExperience) {
             alert("Fill all of the fields before submitting");
             return;
         }
@@ -23,6 +24,7 @@ submitBtn.addEventListener("click", submitFeedback);
         document.getElementById("userDesignation").innerText = designation;
         document.getElementById("userProductChoice").innerText = productType;
         document.getElementById("userFeedback").innerText = feedback;
+        document.getElementById("userExperience").innerText = userExperience;
 
         const userInfo = document.getElementById("userInfo");
         if(userInfo) {
