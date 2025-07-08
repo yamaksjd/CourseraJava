@@ -7,47 +7,35 @@ let tasks = []
 
 
 function addTask() {
-    const taskText = taskInput.value.trim();
-    if (taskText !== "") {
-        tasks.push({text : taskText,
-                    completed : false
-                })
-        taskInput.value = ""
-        displayTasks()
-    }
-    
-}
+            const taskText = taskInput.value.trim();
+            if (taskText !== "") {
+                tasks.push({ text: taskText});
+                taskInput.value = "";
+                displayTasks();
+            }
+        }
 
 function displayTasks() {
-    taskList.innerHTML = ""
-    tasks.forEach((task, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `<input type=checkbox id=task-${index} ${task.completed? "checked" : ""}>
-                            <label for=task-${index}> ${task.text} </label>`
-        li.querySelector("input").addEventListener("change", () => {
-            toggleTask(index)
-            taskList.appendChild(li)
-        })
-        taskList.appendChild(li)
-    })
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<input type="checkbox" id="task-${index}" ${task.completed ? "checked" : ""}>
+                    <label for="task-${index}">${task.text}</label>`;
+                li.querySelector("input").addEventListener("change", () => toggleTask(index));
+                taskList.appendChild(li);
+            });
+        }
 
-}
+        function toggleTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            displayTasks();
+        }
 
-function toggleTask(index) {
-    li = document.getElementById(`task-${index}`)
-    if (li.querySelector(input) == checked) {
-            tasks[index].completed = true
-    }
-    
-    displayTasks()
-}
+    function clearCompletedTasks() {
+            tasks = tasks.filter(task => !task.completed);
+            displayTasks();
+        }
 
-function clearCompletedTasks() {
-    tasks = tasks.filter(tasks => !tasks.completed)
-    displayTasks()
-}
-
-clearCompletedBtn.addEventListener("click", clearCompletedTasks())
-addTaskBtn.addEventListener("click", addTask())
-
+addTaskBtn.addEventListener("click", addTask);
+clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 displayTasks()
