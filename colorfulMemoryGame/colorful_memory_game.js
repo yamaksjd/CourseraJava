@@ -53,8 +53,8 @@ function checkMatch() {
     } else {
         card1.textContent = "?"
         card2.textContent = "?"
-        card1.style.backgroundColor("#ddd")
-        card2.style.backgroundColor("#ddd")
+        card1.style.backgroundColor = "#ddd"
+        card2.style.backgroundColor = "#ddd"
     }
 
     selectedCards = []
