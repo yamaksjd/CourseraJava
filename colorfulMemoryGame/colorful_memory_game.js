@@ -32,7 +32,7 @@ function shuffle(array) {
 
 function handleCardClick(event) {
     const card = event.target
-    if(!card.classList.contains("cards") || card.classList.contains("matched")) {
+    if(!card.classList.contains("card") || card.classList.contains("matched")) {
         return 
     }
     card.textContent = card.dataset.color
@@ -62,7 +62,7 @@ function checkMatch() {
 
 function startGame() {
     startbtn.disabled = true
-    let timeLeft = 30
+    timeLeft = 30
     score = 0
     scoreElement.textContent = `Score: ${score}`
     startGameTimer(timeLeft);
