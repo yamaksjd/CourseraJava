@@ -39,7 +39,7 @@ function handleCardClick(event) {
     card.style.backgroundColor = card.dataset.color
     selectedCards.push(card)
     if(selectedCards.length == 2) {
-        setTimeout(checkMatch(),500)
+        setTimeout(checkMatch,500)
     }
 }
 
@@ -70,7 +70,7 @@ function startGame() {
     selectedCards = []
     gameContainer.innerHTML = ``
     generateCards()
-    gameContainer.addEventListener("click", handleCardClick())
+    gameContainer.addEventListener("click", handleCardClick)
 }
 
 function startGameTimer(timeLeft) {
@@ -87,5 +87,5 @@ function startGameTimer(timeLeft) {
     },1000)
 }
 
-   startbtn.addEventListener('click', startGame());
+   startbtn.addEventListener('click', startGame);
 
